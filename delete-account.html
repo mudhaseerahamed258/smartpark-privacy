@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delete Account - SmartPark Connect</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f8;
+        margin: 0;
+    }
+
+    .container {
+        max-width: 500px;
+        margin: 60px auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+
+    h1 {
+        color: #0047ab;
+        margin-bottom: 10px;
+    }
+
+    p {
+        color: #555;
+        font-size: 15px;
+    }
+
+    input, textarea {
+        width: 100%;
+        padding: 12px;
+        margin: 10px 0;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        background-color: #ff4d4d;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #e43f3f;
+    }
+
+    .note {
+        margin-top: 20px;
+        font-size: 13px;
+        color: #777;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Delete Your Account</h1>
+    
+    <p>
+        We're sorry to see you go. You can request account deletion for your
+        <strong>SmartPark Connect</strong> account using the form below.
+    </p>
+
+    <form onsubmit="handleDelete(event)">
+        <input type="text" id="name" placeholder="Enter your full name" required>
+        <input type="email" id="email" placeholder="Enter your registered email" required>
+        <textarea id="reason" placeholder="Reason for leaving (optional)"></textarea>
+
+        <button type="submit">Request Account Deletion</button>
+    </form>
+
+    <p class="note">
+        Note: Once requested, your account and associated data (vehicles, visitor passes,
+        and organization details) will be permanently deleted within 3–5 working days.
+    </p>
+</div>
+
+<script>
+function handleDelete(event) {
+    event.preventDefault();
+
+    document.body.innerHTML = `
+        <div style="text-align:center; margin-top:20%; font-family:Arial;">
+            <h2>Request Submitted ✅</h2>
+            <p>Your account deletion request has been received.</p>
+            <p>We will process it within 3–5 working days.</p>
+        </div>
+    `;
+}
+</script>
+
+</body>
+</html>
