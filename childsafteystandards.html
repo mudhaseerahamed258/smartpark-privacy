@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Safety Standards | SmartParkConnect</title>
+    <meta name="description" content="Child Safety Standards and Guidelines for SmartParkConnect communities.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f0f6fc;
+            --text-muted: #8b949e;
+            --accent-primary: #58a6ff;
+            --accent-glow: rgba(88, 166, 255, 0.4);
+            --warning-color: #ff7b72;
+            --success-color: #3fb950;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at 15% 50%, rgba(88, 166, 255, 0.08), transparent 25%),
+                              radial-gradient(circle at 85% 30%, rgba(255, 123, 114, 0.05), transparent 25%);
+        }
+
+        header {
+            text-align: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            z-index: -1;
+            opacity: 0.5;
+            animation: pulse-glow 8s infinite alternate;
+        }
+
+        @keyframes pulse-glow {
+            0% { transform: translateX(-50%) scale(1); opacity: 0.3; }
+            100% { transform: translateX(-50%) scale(1.1); opacity: 0.6; }
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem 6rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), 0 0 20px var(--accent-glow);
+            border-color: rgba(88, 166, 255, 0.3);
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            background: rgba(88, 166, 255, 0.1);
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            text-align: center;
+            border-radius: 16px;
+            color: var(--accent-primary);
+        }
+
+        .card-icon.warning {
+            color: var(--warning-color);
+            background: rgba(255, 123, 114, 0.1);
+        }
+
+        .card-icon.success {
+            color: var(--success-color);
+            background: rgba(63, 185, 80, 0.1);
+        }
+
+        h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(88,166,255,0.05) 100%);
+        }
+
+        .full-width .content {
+            flex: 1;
+        }
+
+        .policy-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .policy-list li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .policy-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .full-width {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Child Safety Standards</h1>
+        <p class="subtitle">Protecting the youngest members of our community. Official guidelines for SmartParkConnect residential areas.</p>
+    </header>
+
+    <main>
+        <!-- Card 1 -->
+        <div class="glass-card">
+            <div class="card-icon">🚸</div>
+            <h2>Designated Safe Zones</h2>
+            <p>Children should only play in designated play areas, parks, and clubhouses. Under no circumstances are the basement parking lots or driving lanes to be used as recreational areas.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card">
+            <div class="card-icon warning">🚗</div>
+            <h2>Strict Speed Limits</h2>
+            <p>All vehicles must adhere to a strict 10 km/h (6 mph) speed limit within the community gates, specially near entry/exit ramps, blind corners, and designated pedestrian crossings.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card">
+            <div class="card-icon success">📱</div>
+            <h2>Geofence Alerts via App</h2>
+            <p>SmartParkConnect employs geofencing technology. Parents can opt-in to receive instant notifications if their child’s registered tag or device wanders too close to high-traffic vehicle gates.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card">
+            <div class="card-icon">👁️</div>
+            <h2>AI-Assisted Surveillance</h2>
+            <p>Our parking camera systems are equipped with AI behavior detection. If a young child is spotted unaccompanied in the basement parking, security is immediately alerted to safely escort them back.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glass-card">
+            <div class="card-icon warning">🛑</div>
+            <h2>Visitor Awareness</h2>
+            <p>When you generate a Visitor Pass via SmartParkConnect, guests are automatically informed of our active Child Safety Protocols on their digital pass. All visitors must comply.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glass-card">
+            <div class="card-icon success">📞</div>
+            <h2>Emergency Protocols</h2>
+            <p>In the event of an emergency, the SmartParkConnect app features a one-tap SOS button that instantly connects you to community security, medical personnel, and estate management.</p>
+        </div>
+
+        <!-- Full Width Policy Section -->
+        <div class="glass-card full-width">
+            <div class="content">
+                <h2>Parental Responsibilities & Guidelines</h2>
+                <p>While SmartParkConnect technology significantly boosts community safety, parental supervision remains the most critical layer of protection.</p>
+                <ul class="policy-list">
+                    <li>Ensure children under 10 are supervised by an adult or responsible guardian at all times in common areas.</li>
+                    <li>Teach children to use pedestrian walkways and never to stand near automated parking barriers.</li>
+                    <li>Keep your contact information updated in the SmartParkConnect app to ensure urgent alerts reach you.</li>
+                    <li>Report any reckless driving or safety non-compliance anonymously via the app's Community portal.</li>
+                </ul>
+            </div>
+            <div class="card-icon" style="font-size: 4rem; width: 120px; height: 120px; line-height: 120px;">🛡️</div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>SmartParkConnect Community Management &copy; 2026. Empowering secure and intelligent living.</p>
+        <p><a href="privacy_policy.html">Return to Privacy Policy</a> | <a href="mailto:safety@smartparkconnect.com">Report a Safety Concern</a></p>
+    </footer>
+
+    <script>
+        // Subtle micro-animation for cards on scroll
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll('.glass-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = "1";
+                            entry.target.style.transform = "translateY(0)";
+                        }, index * 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            cards.forEach(card => {
+                card.style.opacity = "0";
+                card.style.transform = "translateY(20px)";
+                card.style.transition = "opacity 0.6s ease, transform 0.6s ease, box-shadow 0.4s ease";
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
